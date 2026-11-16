@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root { color-scheme:light; }
+  * { box-sizing:border-box; }
+  html,body { width:100%; height:100%; margin:0; overflow:hidden; color:#2c2c2c; background:#e4e2dd; font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif; }
+  /* The score is the *only* scrolling region. The controls live below it in
+     normal flex flow, not as a sticky overlay on top of musical glyphs. */
+  #workspace { width:100%; height:100%; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+  #score-scroll { flex:1 1 auto; min-height:0; width:100%; overflow-y:auto; overflow-x:hidden; display:flex; flex-direction:column; gap:6px; padding:10px 14px 34px; overscroll-behavior:contain; }
+  #scan-pane { width:100%; flex:0 0 auto; background:white; }
+  #scan { display:block; width:100%; height:auto; }
+  /* Keep the notation's natural height, including below-staff annotations.
+     A percentage-height #notation inside an auto-height pane can collapse,
+     so use content-driven height and a separate 36px musical safe margin. */
+  #notation-pane { position:relative; flex:0 0 auto; min-height:170px; padding-top:6px; padding-bottom:36px; overflow:visible; }
+  #notation { position:relative; z-index:1; width:100%; height:auto; }
+  #staff-rules { position:absolute; inset:0; z-index:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+  #notation svg { width:100%; height:auto; display:block; overflow:visible; max-width:none; }
+  #notation .pl-selected,
+  #notation .pl-selected * { fill:#e95418 !important; stroke:#ad2700 !important; }
+  #notation .pl-selected .stem,
+  #notation .pl-selected .flag { stroke:#b53a10 !important; }
+  #notation .pl-selected .pl-selection-halo { fill:rgba(255,190,25,.20) !important; stroke:#ec6e00 !important; stroke-width:3; vector-effect:non-scaling-stroke; pointer-events:none; }
+  #status-bar { position:relative; bottom:auto; flex:0 0 auto; width:100%; padding:7px 14px; background:#e4e2dd; color:#4b4b4b; font-size:11px; line-height:1.3; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; border-top:1px solid #bbb8b2; z-index:5; }
+  #status { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #status-tools { display:inline-flex;flex-wrap:wrap;align-items:center;max-width:100%;white-space:normal;gap:2px; }
+  #status-tools label { cursor:pointer; user-select:none; margin-left:8px; }
+  #guide-layer { position:absolute; inset:0; pointer-events:none; display:none; }
+  #guide-layer .guide { position:absolute; top:0; bottom:0; border-left:1px dashed rgba(200,40,0,.60); }
+  body.show-guides #guide-layer { display:block; }
+  #atlas-toggle { margin-left:10px; padding:4px 9px; border:1px solid #a39f97; background:#f9f8f4; color:#292929; border-radius:4px; font-size:12px; cursor:pointer; }
+  #atlas-panel { position:fixed; inset:0 0 0 auto; z-index:30; background:#faf9f6; width:min(430px,95vw); border-left:1px solid #c8c3bb; box-shadow:-9px 0 24px #0002; display:none; flex-direction:column; }
+  body.atlas-open #atlas-panel { display:flex; }
+  .atlas-header {padding:14px 16px 10px;border-bottom:1px solid #ddd7cc;}
+  .atlas-header h2 {font-size:19px; margin:0 0 3px; font-weight:650;}
+  .atlas-subtitle {color:#746f68; font-size:11px;line-height:1.4;}
+  .atlas-header button {border:1px solid #bbb6ac;border-radius:5px;padding:5px 8px;background:white;cursor:pointer;}
+  .atlas-flex {display:flex; justify-content:space-between;align-items:center;gap:10px;}
+  #atlas-content { overflow-y:auto; overflow-x:hidden; flex:1; padding:12px 14px 30px; }
+  .atlas-toolbar {display:flex;gap:7px;margin-bottom:10px;}
+  .atlas-toolbar button,.atlas-actions button {background:white;border:1px solid #bdb8af;border-radius:5px;padding:6px 9px;font-size:12px;cursor:pointer;color:#292929;}
+  .atlas-toolbar button.active {background:#282826;color:white;border-color:#282826;}
+  .atlas-group {margin:14px 0 6px;font-weight:630;font-size:13px;}
+  .atlas-beat-grid {display:grid; grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;}
+  .atlas-beat {background:#fff;border:1px solid #c9c4bb;border-radius:5px;cursor:pointer;text-align:left;padding:8px 5px;font-size:12px;min-width:0;position:relative;}
+  .atlas-beat.selected {outline:2px solid #dd7616;outline-offset:0;background:#fff5e9;}
+  .atlas-mini {display:block;width:100%;height:46px;margin:4px 0 0;background:white;border-top:1px solid #eee9e0;}
+  .atlas-beat .small {font-size:10px;color:#716d65;display:block;margin-top:3px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+  .atlas-beat.reviewed::after {content:'✓';position:absolute;right:5px;top:3px;color:#227453;}
+  .atlas-beat.flagged::after {content:'!';position:absolute;right:7px;top:3px;color:#b85224;font-weight:bold;}
+  .atlas-detail {border-top:1px solid #d8d3cc;margin-top:16px;padding-top:12px;}
+  .atlas-detail h3 {font-size:15px;margin:0 0 5px;}
+  .atlas-annotation {font-size:12px;color:#797167;margin:5px 0 10px;}
+  #atlas-crop {display:block;width:100%;height:auto;min-height:66px;background:white;border:1px solid #dbd7cf;}
+  .atlas-category {margin:12px 0;}
+  .atlas-category strong {font-size:12px;}
+  .atlas-category p {font-size:12px;line-height:1.5;margin:4px 0;color:#373530;}
+  .atlas-event {font-size:12px;padding:4px 6px;margin:4px 0;border-left:2px solid #b4aa9e;background:#f0eee8;line-height:1.5;}
+  .atlas-events-warning {background:#fff0e1;border:1px solid #edc69c;padding:8px;font-size:12px;line-height:1.4;margin:10px 0;}
+  #atlas-note {width:100%;min-height:58px;resize:vertical;border:1px solid #bab5aa;padding:7px;font-family:inherit;font-size:12px;background:white;color:#222;}
+  .atlas-actions {display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .atlas-actions button:disabled {opacity:.4;cursor:not-allowed;}
+  #atlas-audit {font-size:12px;line-height:1.5;color:#595247;white-space:pre-wrap;margin-top:11px;}
+  #atlas-scan-band {position:absolute;z-index:3;pointer-events:none;display:none;border:1px solid #cc6e1d;background:#e4a85622;}
+  body.atlas-open #atlas-scan-band {display:block;}
+  /* Review ink lives in the same coordinate system as each visible pane.
+     It intercepts input only while Pen is active; normal traversal is unchanged. */
+  .review-ink {position:absolute;inset:0;width:100%;height:100%;z-index:12;overflow:visible;pointer-events:none;touch-action:none;}
+  body.pen-active .review-ink, body.review-shift-held .review-ink {pointer-events:auto;cursor:crosshair;}
+  .review-ink .ink-stroke {fill:none;stroke:#e05a0c;stroke-width:3;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke;}
+  .review-ink .ink-focused {stroke:#cc3900;stroke-width:6;filter:drop-shadow(0 0 3px #fff);}
+  .review-ink .ink-hit {fill:none;stroke:transparent;stroke-width:19;vector-effect:non-scaling-stroke;pointer-events:stroke;cursor:pointer;}
+  body.pen-active .review-ink .ink-hit {pointer-events:stroke;}
+  body.review-shift-held .review-ink .ink-hit {pointer-events:stroke;}
+  #pen-toggle,#copy-notes {margin-left:7px;padding:4px 9px;border:1px solid #a39f97;background:#f9f8f4;color:#292929;border-radius:4px;font-size:12px;cursor:pointer;}
+  #pen-toggle[aria-pressed="true"] {background:#292826;color:white;border-color:#292826;}
+  #review-editor {position:fixed;z-index:55;width:min(310px,calc(100vw - 18px));padding:10px;border:1px solid #c8beb0;background:#fffdfa;border-radius:8px;box-shadow:0 8px 28px #0004;display:none;}
+  #review-editor.visible {display:block;}
+  #review-editor-title {font-size:12px;font-weight:650;margin-bottom:6px;}
+  #review-editor textarea {display:block;width:100%;height:83px;resize:vertical;border:1px solid #aca69e;border-radius:4px;padding:7px;font:13px/1.4 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;outline-color:#d56a24;}
+  #review-location {display:none;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:#555;margin:2px 0 8px;}
+  body.draft-review #review-location {display:flex;}
+  #review-location select {font-size:12px;background:white;color:#222;padding:3px 5px;border:1px solid #b9b1a4;border-radius:4px;}
+  #review-editor-actions {display:flex;align-items:center;gap:6px;justify-content:flex-end;margin-top:7px;}
+  #review-editor-actions button {font-size:12px;border:1px solid #b9b1a4;background:#fff;border-radius:4px;padding:5px 9px;cursor:pointer;}
+  #review-editor-save {background:#2c2c2c!important;color:#fff;border-color:#2c2c2c!important;}
+  #review-editor-hint {font-size:10px;color:#726d65;flex:1;line-height:1.25;}
+  #copy-notes-feedback {font-size:11px;color:#655e52;margin-left:5px;}
+  #position-reset,#position-undo,#position-redo {margin-left:5px;padding:4px 8px;border:1px solid #a39f97;background:#f9f8f4;color:#292929;border-radius:4px;font-size:12px;cursor:pointer;}
+  #position-reset:disabled,#position-undo:disabled,#position-redo:disabled {opacity:.40;cursor:default;}
+  /* Frozen systems never expose the symbol-drag overlay. Approval ink and
+     navigation remain separate from the preserved engraving snapshot. */
+  body.system-locked #position-hitboxes {display:none!important;pointer-events:none!important;}
+  body.system-locked #position-reset,body.system-locked #position-undo,body.system-locked #position-redo {pointer-events:none;opacity:.35;}
+  #position-hitboxes {position:absolute;inset:0;z-index:8;pointer-events:none;}
+  #position-hitboxes .position-hitbox {position:absolute;pointer-events:auto;cursor:grab;border:1px dashed transparent;background:transparent;border-radius:3px;touch-action:none;user-select:none;}
+  body.pen-active #position-hitboxes .position-hitbox,body.review-shift-held #position-hitboxes .position-hitbox{pointer-events:none;}
+  #position-hitboxes .position-hitbox:hover,#position-hitboxes .position-hitbox.selected {outline:2px solid #db7a22;background:rgba(255,200,110,.14);border-color:#a64a14;}
+  #position-hitboxes .position-hitbox:active{cursor:grabbing;}
+  #position-message{font-size:11px;color:#625e53;margin-left:9px;}
+  #error { white-space:pre-wrap; padding:15px; font-size:13px; color:#a02222; }
+</style></head>
+<body>
+<div id="workspace">
+  <div id="score-scroll" role="region" aria-label="Scrollable scan and notation comparison">
+  <div id="scan-pane" style="position:relative"><img id="scan" alt="Reference scan" /><div id="atlas-scan-band"></div><svg id="ink-scan" class="review-ink" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-label="Pen marks over the scan"></svg></div>
+  <div id="notation-pane"><div id="position-hitboxes" aria-label="Movable engraving symbols"></div><svg id="staff-rules" aria-hidden="true"></svg><div id="notation"></div><div id="guide-layer"></div><svg id="ink-notation" class="review-ink" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-label="Pen marks over the notation"></svg></div>
+  </div>
+  <div id="status-bar"><span id="status">Starting local Verovio…</span><span id="status-tools"><label for="staff-size">Staff size</label> <input id="staff-size" type="range" min="40" max="180" step="1" value="100" aria-label="Staff size relative to scan" style="width:96px;vertical-align:middle"/> <output id="staff-size-value">100%</output><label><input id="guides" type="checkbox"/> Scan guides</label><button type="button" id="pen-toggle" aria-pressed="false" title="Draw a circle around a problem, then type a note">Pen</button><button type="button" id="position-undo" disabled title="Undo position change">↶</button><button type="button" id="position-redo" disabled title="Redo position change">↷</button><button type="button" id="position-reset" disabled title="Restore selected symbol position">Reset</button><span id="position-message" role="status"></span><button type="button" id="copy-notes" title="Copy all saved review notes for this piece as text">Copy Notes (0)</button><span id="copy-notes-feedback" role="status"></span><button type="button" id="atlas-toggle" aria-expanded="false">Beat Atlas</button></span></div>
+</div>
+<div id="review-editor" role="dialog" aria-label="Circle review note" aria-modal="false"><div id="review-editor-title">Describe the circled problem</div><div id="review-location"><label for="review-editor-measure">Measure</label><select id="review-editor-measure"></select><label for="review-editor-staff">Staff</label><select id="review-editor-staff"><option value="">Not specified</option><option value="RH">RH</option><option value="LH">LH</option></select></div><textarea id="review-editor-text" placeholder="What should be corrected?"></textarea><div id="review-editor-actions"><span id="review-editor-hint">Enter: save · Shift-click circle: delete</span><button type="button" id="review-editor-delete" hidden>Delete</button><button type="button" id="review-editor-cancel">Cancel</button><button type="button" id="review-editor-save">Save</button></div></div>
+<aside id="atlas-panel" aria-label="Beat Atlas" aria-hidden="true">
+  <div class="atlas-header">
+    <div class="atlas-flex"><h2>Beat Atlas</h2><button type="button" id="atlas-close" aria-label="Close Beat Atlas">Close</button></div>
+    <div class="atlas-subtitle" id="atlas-summary">MusicXML interpretations are provisional. Scan reference is authoritative.</div>
+  </div>
+  <div id="atlas-content">
+    <div class="atlas-toolbar"><button id="atlas-rh" type="button" class="active">Right hand</button><button id="atlas-lh" type="button">Left hand</button><button id="atlas-export-svg" type="button" style="margin-left:auto" title="Copy the exact rendered SVG as text to the macOS clipboard" aria-live="polite">Copy SVG</button><button id="atlas-export" type="button">Export JSON…</button></div>
+    <div id="atlas-grid"></div>
+    <section class="atlas-detail" id="atlas-detail" aria-live="polite">
+      <h3 id="atlas-title">Select a beat</h3>
+      <div class="atlas-annotation">Reference pixels in the original scan's coordinate system; crop boundaries are estimated between engraved event anchors.</div>
+      <canvas id="atlas-crop" width="390" height="135"></canvas>
+      <div id="atlas-categories"></div>
+      <div id="atlas-map-warning"></div>
+      <label for="atlas-note" class="atlas-annotation">Review notes</label>
+      <textarea id="atlas-note" placeholder="Observations about this beat or its transcription…"></textarea>
+      <div class="atlas-actions"><button id="atlas-verify" type="button">Verify manually</button><button id="atlas-flag" type="button">Needs review</button><button id="atlas-clear" type="button">Clear</button><button id="atlas-retranscribe" type="button">Retranscribe</button></div>
+      <div id="atlas-audit" role="status"></div>
+    </section>
+  </div>
+</aside>
+<script src="review-pen.js"></script><script src="position-editor.js"></script><script src="verovio-toolkit-wasm.js"></script><script src="atlas.js"></script><script src="render-input.js"></script><script src="layout-geometry.js"></script><script src="scan-calibration.js"></script><script src="bulk-exclusions.js"></script><script src="attachment-audit.js"></script><script src="engraving-semantics.js"></script><script src="engraving-layout.js"></script><script src="engraving-rules.js"></script><script src="engraving-ties.js"></script><script src="render.js"></script>
+</body></html>
