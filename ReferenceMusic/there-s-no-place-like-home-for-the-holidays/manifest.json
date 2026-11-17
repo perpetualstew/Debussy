@@ -1,0 +1,263 @@
+{
+  "schema": 2,
+  "title": "(There's No Place Like) Home for the Holidays",
+  "sourceSha256": "80e47896c59548e773e78ddecd174c0f53269fbc4d79b93fc09a6c8c19a4bab9",
+  "reviewMode": "draft",
+  "systems": [
+    {
+      "id": "s01",
+      "first": 0,
+      "last": 3,
+      "scan": "systems/s01.jpg",
+      "score": "excerpts/s01.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 590,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s02",
+      "first": 4,
+      "last": 7,
+      "scan": "systems/s02.jpg",
+      "score": "excerpts/s02.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 524,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s03",
+      "first": 8,
+      "last": 11,
+      "scan": "systems/s03.jpg",
+      "score": "excerpts/s03.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 524,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s04",
+      "first": 12,
+      "last": 15,
+      "scan": "systems/s04.jpg",
+      "score": "excerpts/s04.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 544,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s05",
+      "first": 16,
+      "last": 19,
+      "scan": "systems/s05.jpg",
+      "score": "excerpts/s05.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 552,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s06",
+      "first": 20,
+      "last": 23,
+      "scan": "systems/s06.jpg",
+      "score": "excerpts/s06.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 577,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s07",
+      "first": 24,
+      "last": 27,
+      "scan": "systems/s07.jpg",
+      "score": "excerpts/s07.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 556,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s08",
+      "first": 28,
+      "last": 31,
+      "scan": "systems/s08.jpg",
+      "score": "excerpts/s08.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 558,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s09",
+      "first": 32,
+      "last": 35,
+      "scan": "systems/s09.jpg",
+      "score": "excerpts/s09.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 535,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s10",
+      "first": 36,
+      "last": 39,
+      "scan": "systems/s10.jpg",
+      "score": "excerpts/s10.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 577,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s11",
+      "first": 40,
+      "last": 43,
+      "scan": "systems/s11.jpg",
+      "score": "excerpts/s11.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 550,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "6"
+      ]
+    },
+    {
+      "id": "s12",
+      "first": 44,
+      "last": 47,
+      "scan": "systems/s12.jpg",
+      "score": "excerpts/s12.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 554,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s13",
+      "first": 48,
+      "last": 51,
+      "scan": "systems/s13.jpg",
+      "score": "excerpts/s13.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 550,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s14",
+      "first": 52,
+      "last": 55,
+      "scan": "systems/s14.jpg",
+      "score": "excerpts/s14.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 566,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s15",
+      "first": 56,
+      "last": 59,
+      "scan": "systems/s15.jpg",
+      "score": "excerpts/s15.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 571,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "2",
+        "4"
+      ]
+    },
+    {
+      "id": "s16",
+      "first": 60,
+      "last": 63,
+      "scan": "systems/s16.jpg",
+      "score": "excerpts/s16.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 531,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "2",
+        "5"
+      ]
+    },
+    {
+      "id": "s17",
+      "first": 64,
+      "last": 67,
+      "scan": "systems/s17.jpg",
+      "score": "excerpts/s17.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 532,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "2",
+        "6"
+      ]
+    }
+  ]
+}

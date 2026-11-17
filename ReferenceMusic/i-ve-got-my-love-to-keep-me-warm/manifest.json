@@ -1,0 +1,443 @@
+{
+  "schema": 2,
+  "title": "I've Got My Love to Keep Me Warm",
+  "sourceSha256": "3a57578fb798bcce56a4a805e62bb127531fb7b1c4beef733907f3aa21ff708c",
+  "reviewMode": "draft",
+  "systems": [
+    {
+      "id": "s01",
+      "first": 0,
+      "last": 3,
+      "scan": "systems/s01.jpg",
+      "score": "excerpts/s01.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 478,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s02",
+      "first": 4,
+      "last": 7,
+      "scan": "systems/s02.jpg",
+      "score": "excerpts/s02.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 448,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s03",
+      "first": 8,
+      "last": 11,
+      "scan": "systems/s03.jpg",
+      "score": "excerpts/s03.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 448,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s04",
+      "first": 12,
+      "last": 15,
+      "scan": "systems/s04.jpg",
+      "score": "excerpts/s04.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 459,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s05",
+      "first": 16,
+      "last": 19,
+      "scan": "systems/s05.jpg",
+      "score": "excerpts/s05.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 469,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s06",
+      "first": 20,
+      "last": 23,
+      "scan": "systems/s06.jpg",
+      "score": "excerpts/s06.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 449,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s07",
+      "first": 24,
+      "last": 27,
+      "scan": "systems/s07.jpg",
+      "score": "excerpts/s07.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 509,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s08",
+      "first": 28,
+      "last": 31,
+      "scan": "systems/s08.jpg",
+      "score": "excerpts/s08.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 465,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s09",
+      "first": 32,
+      "last": 35,
+      "scan": "systems/s09.jpg",
+      "score": "excerpts/s09.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 472,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s10",
+      "first": 36,
+      "last": 39,
+      "scan": "systems/s10.jpg",
+      "score": "excerpts/s10.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 450,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s11",
+      "first": 40,
+      "last": 43,
+      "scan": "systems/s11.jpg",
+      "score": "excerpts/s11.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 473,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "6"
+      ]
+    },
+    {
+      "id": "s12",
+      "first": 44,
+      "last": 47,
+      "scan": "systems/s12.jpg",
+      "score": "excerpts/s12.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 457,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s13",
+      "first": 48,
+      "last": 51,
+      "scan": "systems/s13.jpg",
+      "score": "excerpts/s13.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 479,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s14",
+      "first": 52,
+      "last": 55,
+      "scan": "systems/s14.jpg",
+      "score": "excerpts/s14.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 456,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s15",
+      "first": 56,
+      "last": 59,
+      "scan": "systems/s15.jpg",
+      "score": "excerpts/s15.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 456,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s16",
+      "first": 60,
+      "last": 63,
+      "scan": "systems/s16.jpg",
+      "score": "excerpts/s16.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 455,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s17",
+      "first": 64,
+      "last": 67,
+      "scan": "systems/s17.jpg",
+      "score": "excerpts/s17.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 457,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "6"
+      ]
+    },
+    {
+      "id": "s18",
+      "first": 68,
+      "last": 71,
+      "scan": "systems/s18.jpg",
+      "score": "excerpts/s18.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 463,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s19",
+      "first": 72,
+      "last": 75,
+      "scan": "systems/s19.jpg",
+      "score": "excerpts/s19.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 461,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s20",
+      "first": 76,
+      "last": 79,
+      "scan": "systems/s20.jpg",
+      "score": "excerpts/s20.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 462,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s21",
+      "first": 80,
+      "last": 82,
+      "scan": "systems/s21.jpg",
+      "score": "excerpts/s21.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 462,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s22",
+      "first": 83,
+      "last": 86,
+      "scan": "systems/s22.jpg",
+      "score": "excerpts/s22.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 425,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s23",
+      "first": 87,
+      "last": 89,
+      "scan": "systems/s23.jpg",
+      "score": "excerpts/s23.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 424,
+      "sourcePage": 4,
+      "sourceKey": [
+        4,
+        "1",
+        "6"
+      ]
+    },
+    {
+      "id": "s24",
+      "first": 90,
+      "last": 92,
+      "scan": "systems/s24.jpg",
+      "score": "excerpts/s24.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 480,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s25",
+      "first": 93,
+      "last": 96,
+      "scan": "systems/s25.jpg",
+      "score": "excerpts/s25.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 463,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s26",
+      "first": 97,
+      "last": 97,
+      "scan": "systems/s26.jpg",
+      "score": "excerpts/s26.musicxml",
+      "scanWidthPx": 1802,
+      "scanHeightPx": 961,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s27",
+      "first": 98,
+      "last": 99,
+      "scan": "systems/s27.jpg",
+      "score": "excerpts/s27.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 785,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s28",
+      "first": 100,
+      "last": 103,
+      "scan": "systems/s28.jpg",
+      "score": "excerpts/s28.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 497,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s29",
+      "first": 104,
+      "last": 106,
+      "scan": "systems/s29.jpg",
+      "score": "excerpts/s29.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 474,
+      "sourcePage": 5,
+      "sourceKey": [
+        5,
+        "1",
+        "6"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "schema": 2,
+  "title": "Silver Bells",
+  "sourceSha256": "fd8a2347e18a213e89461b74a4a0a83f1864414531337521c43d0d2747ac4b0e",
+  "reviewMode": "draft",
+  "systems": [
+    {
+      "id": "s01",
+      "first": 0,
+      "last": 4,
+      "scan": "systems/s01.jpg",
+      "score": "excerpts/s01.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 586,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s02",
+      "first": 5,
+      "last": 10,
+      "scan": "systems/s02.jpg",
+      "score": "excerpts/s02.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 554,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s03",
+      "first": 11,
+      "last": 15,
+      "scan": "systems/s03.jpg",
+      "score": "excerpts/s03.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 541,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s04",
+      "first": 16,
+      "last": 20,
+      "scan": "systems/s04.jpg",
+      "score": "excerpts/s04.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 549,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s05",
+      "first": 21,
+      "last": 25,
+      "scan": "systems/s05.jpg",
+      "score": "excerpts/s05.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 547,
+      "sourcePage": 1,
+      "sourceKey": [
+        1,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s06",
+      "first": 26,
+      "last": 29,
+      "scan": "systems/s06.jpg",
+      "score": "excerpts/s06.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 559,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s07",
+      "first": 30,
+      "last": 34,
+      "scan": "systems/s07.jpg",
+      "score": "excerpts/s07.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 542,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s08",
+      "first": 35,
+      "last": 39,
+      "scan": "systems/s08.jpg",
+      "score": "excerpts/s08.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 531,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s09",
+      "first": 40,
+      "last": 44,
+      "scan": "systems/s09.jpg",
+      "score": "excerpts/s09.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 530,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s10",
+      "first": 45,
+      "last": 49,
+      "scan": "systems/s10.jpg",
+      "score": "excerpts/s10.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 531,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s11",
+      "first": 50,
+      "last": 53,
+      "scan": "systems/s11.jpg",
+      "score": "excerpts/s11.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 540,
+      "sourcePage": 2,
+      "sourceKey": [
+        2,
+        "1",
+        "6"
+      ]
+    },
+    {
+      "id": "s12",
+      "first": 54,
+      "last": 58,
+      "scan": "systems/s12.jpg",
+      "score": "excerpts/s12.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 530,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "1"
+      ]
+    },
+    {
+      "id": "s13",
+      "first": 59,
+      "last": 63,
+      "scan": "systems/s13.jpg",
+      "score": "excerpts/s13.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 528,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "s14",
+      "first": 64,
+      "last": 67,
+      "scan": "systems/s14.jpg",
+      "score": "excerpts/s14.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 528,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "s15",
+      "first": 68,
+      "last": 71,
+      "scan": "systems/s15.jpg",
+      "score": "excerpts/s15.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 528,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "4"
+      ]
+    },
+    {
+      "id": "s16",
+      "first": 72,
+      "last": 75,
+      "scan": "systems/s16.jpg",
+      "score": "excerpts/s16.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 528,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "5"
+      ]
+    },
+    {
+      "id": "s17",
+      "first": 76,
+      "last": 79,
+      "scan": "systems/s17.jpg",
+      "score": "excerpts/s17.musicxml",
+      "scanWidthPx": 2400,
+      "scanHeightPx": 528,
+      "sourcePage": 3,
+      "sourceKey": [
+        3,
+        "1",
+        "6"
+      ]
+    }
+  ]
+}

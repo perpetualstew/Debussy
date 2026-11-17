@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Debussy — Presentation Designer</title>
+<style>
+  :root{color-scheme:light;--ink:#19212d;--muted:#677383;--line:#dce2e8;--surface:#fff;--accent:#2665a2;--bg:#f1f4f7}
+  *{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;font:13px -apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+  button,select,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}
+  #app{height:100%;display:grid;grid-template-columns:244px minmax(0,1fr) 286px;grid-template-rows:64px minmax(0,1fr) 38px}
+  header{grid-column:1/4;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 22px}
+  .logo{font-family:Georgia,serif;font-weight:600;font-size:26px;letter-spacing:-1.2px;color:#213f59}header .subhead{font-size:11px;color:var(--muted);margin-left:8px}header .stretch{flex:1}
+  button.primary{color:white;background:#28669d;border:1px solid #28669d;border-radius:7px;padding:9px 14px;font-weight:600}
+  button.secondary{background:white;border:1px solid #cbd4df;border-radius:7px;padding:8px 11px;color:#37475b}
+  #sidebar{background:#fff;border-right:1px solid var(--line);overflow:auto;padding:21px 12px 16px}
+  h2.section{margin:0 10px 10px;text-transform:uppercase;color:#718092;font-size:10px;letter-spacing:1.2px;font-weight:700}
+  #pieces{display:flex;flex-direction:column;gap:2px}.piece{width:100%;text-align:left;display:flex;align-items:start;gap:8px;border:0;background:transparent;border-radius:7px;padding:10px 9px;color:#324050;line-height:1.35}
+  .piece:hover{background:#edf2f6}.piece.active{background:#e4eef7;color:#124e7e;font-weight:650}.piece .n{font-size:10px;width:18px;color:#9ca9b7;flex-shrink:0;margin-top:2px}.piece .label{flex:1}
+  .count{font-size:11px;color:#8a97a4;font-weight:400;margin:12px 11px}
+  #center{min-width:0;overflow:hidden;display:flex;flex-direction:column}
+  #top{padding:19px 25px 14px;background:#fafbfc;border-bottom:1px solid var(--line)}
+  #piece-title{font-size:21px;margin:0 0 4px;letter-spacing:-.3px;font-weight:650}#piece-meta{color:var(--muted);font-size:12px}
+  .toolbar{display:flex;align-items:center;gap:9px;margin-top:15px;flex-wrap:wrap}
+  .toolbar label{font-weight:600;font-size:11px;color:#5c6c7d}.toolbar select{background:#fff;border:1px solid #ccd6df;border-radius:6px;padding:7px 9px;min-width:85px}
+  .toolbar input[type=checkbox]{vertical-align:middle}.toolbar .sep{width:1px;height:22px;background:#d5dfe7;margin:0 3px}
+  #canvas-scroller{flex:1;overflow:auto;padding:22px 24px 30px;display:flex;align-items:flex-start;justify-content:center;background:#e6ebf0}
+  #pages{display:flex;align-items:flex-start;justify-content:center;gap:18px;min-width:0}#pages.landscape-dual{flex-direction:column}
+  .screen{display:flex;flex-direction:column;align-items:center;gap:9px;flex:0 0 auto}.screen-label{font-size:10px;font-weight:700;letter-spacing:.75px;color:#6c7c8c}
+  canvas.score{background:white;box-shadow:0 5px 21px #26384a29;border:1px solid #c9d0d6;display:block}
+  #pager{height:49px;background:#fafbfc;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:17px;flex-shrink:0}
+  #pager span{font-variant-numeric:tabular-nums;color:#536171;min-width:150px;text-align:center}
+  #inspector{background:white;border-left:1px solid var(--line);overflow:auto;padding:20px 18px}
+  #inspector h3{margin:0 0 15px;font-size:15px}section.options{border-bottom:1px solid #e6ebef;padding-bottom:15px;margin-bottom:17px}
+  .control{margin-bottom:15px}.control-top{display:flex;justify-content:space-between;gap:9px;margin-bottom:6px}.control-top label{font-size:12px;color:#536273}.control-top output{font-size:12px;font-variant-numeric:tabular-nums;font-weight:600}
+  input[type=range]{width:100%;accent-color:#3d7ba9;cursor:pointer}
+  #inspector .hint{font-size:11px;color:#718094;line-height:1.55;margin:8px 0 0}
+  .chip{font-size:10px;letter-spacing:.3px;background:#edf2f6;border:1px solid #dfe6ec;color:#526476;padding:3px 7px;border-radius:5px}
+  #notice{padding:11px 13px;background:#f1f5fa;color:#3f5672;border-radius:7px;line-height:1.55;margin-top:15px;font-size:11px;min-height:42px;overflow-wrap:anywhere}
+  #notice.error{background:#ffede8;color:#9c3c25}#notice.success{background:#e5f4e9;color:#236542}
+  #footer{grid-column:1/4;border-top:1px solid var(--line);background:#fff;color:#7a8795;display:flex;align-items:center;padding:0 19px;font-size:11px;gap:12px}#footer span:last-child{margin-left:auto}
+  @media(max-width:1200px){#app{grid-template-columns:195px minmax(0,1fr) 246px}#sidebar{padding-left:7px;padding-right:7px}#inspector{padding:18px 13px}#canvas-scroller{padding:15px}}
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="logo">Debussy</div><span class="subhead">MUSIC PRESENTATION STUDIO · PILOT 02</span>
+  <span class="stretch"></span><button id="open-source" class="secondary">Source files</button>
+  <button id="open-output" class="secondary">Generated PNGs</button>
+  <button id="publish" class="primary" disabled>Export current profile</button>
+</header>
+<aside id="sidebar"><h2 class="section">Music library</h2><div id="pieces"></div><div class="count" id="catalog-count">Loading catalog…</div></aside>
+<main id="center">
+  <div id="top"><div id="piece-title">Choose an arrangement</div><div id="piece-meta">MusicXML-based presentation designer</div>
+    <div class="toolbar">
+      <label for="screens">Screens</label><select id="screens"><option value="1">1 screen</option><option value="2" selected>2 screens</option></select>
+      <label for="orientation">Orientation</label><select id="orientation"><option value="portrait" selected>Portrait</option><option value="landscape">Landscape</option></select>
+      <label for="size">Notation</label><select id="size"><option value="large" selected>Large</option><option value="small">Small</option></select>
+      <label for="mirror">Mirror</label><input type="checkbox" id="mirror">
+      <span class="sep"></span><span id="profile-name" class="chip">2 · Portrait · Large</span>
+    </div>
+  </div>
+  <div id="canvas-scroller"><div id="pages"></div></div>
+  <div id="pager"><button id="prev" class="secondary" disabled>← Previous</button><span id="pagination">No pages yet</span><button id="next" class="secondary" disabled>Next →</button></div>
+</main>
+<aside id="inspector"><h3>Appearance</h3>
+  <section class="options"><div class="control"><div class="control-top"><label for="staffScale">Staff / music scale</label><output id="staffScaleValue">100%</output></div><input type="range" id="staffScale" min="50" max="145" step="1" value="100"></div>
+  <div class="control"><div class="control-top"><label for="systemsPerPage">Systems per screen</label><output id="systemsPerPageValue">4</output></div><input type="range" id="systemsPerPage" min="1" max="7" step="1" value="4"></div>
+  <div class="control"><div class="control-top"><label for="margin">Page margins</label><output id="marginValue">48px</output></div><input type="range" id="margin" min="12" max="150" step="2" value="48"></div>
+  <div class="control"><div class="control-top"><label for="spacing">System spacing</label><output id="spacingValue">30px</output></div><input type="range" id="spacing" min="0" max="160" step="2" value="30"></div>
+  <div class="control"><div class="control-top"><label for="titleHeight">Title area</label><output id="titleHeightValue">76px</output></div><input type="range" id="titleHeight" min="0" max="180" step="4" value="76"></div><label class="hint" style="display:flex;gap:8px;align-items:center;margin-top:13px"><input type="checkbox" id="distribute" checked>Distribute systems across screen height</label></section>
+  <section class="options"><h3>Position</h3>
+  <div class="control"><div class="control-top"><label for="horizontal">Horizontal offset</label><output id="horizontalValue">0px</output></div><input type="range" id="horizontal" min="-180" max="180" step="5" value="0"></div>
+  <div class="control"><div class="control-top"><label for="vertical">Vertical offset</label><output id="verticalValue">0px</output></div><input type="range" id="vertical" min="-180" max="180" step="5" value="0"></div>
+  <button id="reset" class="secondary">Reset this profile</button>
+  <p class="hint">Each piece and presentation profile has its own saved layout. Changing the portrait version won't alter landscape.</p></section>
+  <section class="options"><h3>Source and output</h3><div class="chip" id="source-status">Source system breaks</div>
+  <p class="hint">Music is freshly engraved from MusicXML. System breaks are inherited from the source excerpts in this pilot; measure reflow and manual notation edits are not yet available.</p>
+  <p class="hint">Canvas preview and PNG export use the same 1080×1920 portrait or 1920×1080 landscape pixels per screen.</p></section>
+  <div id="notice" role="status">Loading the local engraving engine…</div>
+</aside>
+<footer id="footer"><span>Debussy v0.2 · Independent Mac app</span><span>Source scores remain unchanged · No phone / Pi sync in this build</span></footer>
+</div>
+<script src="verovio-toolkit-wasm.js"></script>
+<script src="studio.js"></script>
+</body></html>

@@ -1,0 +1,51 @@
+{
+  "lastPiece" : "christmas-time-is-here",
+  "lastProfile" : {
+    "mirror" : false,
+    "orientation" : "portrait",
+    "screens" : 2,
+    "size" : "large"
+  },
+  "layouts" : {
+    "christmas-time-is-here|s2-portrait-large-m0" : {
+      "distribute" : false,
+      "horizontal" : -30,
+      "margin" : 12,
+      "spacing" : 30,
+      "staffScale" : 95,
+      "systemsPerPage" : 5,
+      "titleHeight" : 60,
+      "vertical" : 0
+    },
+    "christmas-time-is-here|s2-portrait-large-m1" : {
+      "distribute" : true,
+      "horizontal" : 0,
+      "margin" : 46,
+      "spacing" : 30,
+      "staffScale" : 105,
+      "systemsPerPage" : 4,
+      "titleHeight" : 80,
+      "vertical" : 0
+    },
+    "christmas-time-is-here|s2-portrait-small-m0" : {
+      "distribute" : true,
+      "horizontal" : 0,
+      "margin" : 46,
+      "spacing" : 30,
+      "staffScale" : 86,
+      "systemsPerPage" : 5,
+      "titleHeight" : 80,
+      "vertical" : 0
+    },
+    "the-christmas-song|s2-portrait-large-m0" : {
+      "distribute" : true,
+      "horizontal" : 0,
+      "margin" : 46,
+      "spacing" : 30,
+      "staffScale" : 105,
+      "systemsPerPage" : 4,
+      "titleHeight" : 80,
+      "vertical" : 0
+    }
+  }
+}

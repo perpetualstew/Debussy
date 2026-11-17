@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "pieces": [
+    {
+      "slug": "the-christmas-song",
+      "title": "The Christmas Song",
+      "directory": "pieces/the-christmas-song",
+      "status": "complete",
+      "systems": 17,
+      "measures": 64
+    },
+    {
+      "slug": "christmas-time-is-here",
+      "title": "Christmas Time Is Here",
+      "directory": "pieces/christmas-time-is-here",
+      "status": "complete",
+      "systems": 17,
+      "measures": 88
+    },
+    {
+      "slug": "frosty-the-snowman",
+      "title": "Frosty the Snowman",
+      "directory": "pieces/frosty-the-snowman",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 114
+    },
+    {
+      "slug": "have-yourself-a-merry-little-christmas",
+      "title": "Have Yourself a Merry Little Christmas",
+      "directory": "pieces/have-yourself-a-merry-little-christmas",
+      "status": "needs-review",
+      "systems": 17,
+      "measures": 72
+    },
+    {
+      "slug": "there-s-no-place-like-home-for-the-holidays",
+      "title": "(There's No Place Like) Home for the Holidays",
+      "directory": "pieces/there-s-no-place-like-home-for-the-holidays",
+      "status": "needs-review",
+      "systems": 17,
+      "measures": 68
+    },
+    {
+      "slug": "i-ll-be-home-for-christmas",
+      "title": "I'll Be Home for Christmas",
+      "directory": "pieces/i-ll-be-home-for-christmas",
+      "status": "needs-review",
+      "systems": 18,
+      "measures": 71
+    },
+    {
+      "slug": "i-ve-got-my-love-to-keep-me-warm",
+      "title": "I've Got My Love to Keep Me Warm",
+      "directory": "pieces/i-ve-got-my-love-to-keep-me-warm",
+      "status": "needs-review",
+      "systems": 29,
+      "measures": 107
+    },
+    {
+      "slug": "it-s-beginning-to-look-a-lot-like-christmas",
+      "title": "It's Beginning to Look a Lot Like Christmas",
+      "directory": "pieces/it-s-beginning-to-look-a-lot-like-christmas",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 87
+    },
+    {
+      "slug": "let-it-snow-let-it-snow-let-it-snow",
+      "title": "Let it Snow! Let it Snow! Let it Snow!",
+      "directory": "pieces/let-it-snow-let-it-snow-let-it-snow",
+      "status": "needs-review",
+      "systems": 18,
+      "measures": 69
+    },
+    {
+      "slug": "rudolph-the-red-nosed-reindeer",
+      "title": "Rudolph the Red-Nosed Reindeer",
+      "directory": "pieces/rudolph-the-red-nosed-reindeer",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 114
+    },
+    {
+      "slug": "silver-bells",
+      "title": "Silver Bells",
+      "directory": "pieces/silver-bells",
+      "status": "needs-review",
+      "systems": 17,
+      "measures": 80
+    },
+    {
+      "slug": "the-most-wonderful-time-of-the-year",
+      "title": "The Most Wonderful Time of the Year",
+      "directory": "pieces/the-most-wonderful-time-of-the-year",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 97
+    },
+    {
+      "slug": "we-wish-you-the-merriest",
+      "title": "We Wish You the Merriest",
+      "directory": "pieces/we-wish-you-the-merriest",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 95
+    },
+    {
+      "slug": "what-are-you-doing-new-year-s-eve",
+      "title": "What Are You Doing New Year's Eve?",
+      "directory": "pieces/what-are-you-doing-new-year-s-eve",
+      "status": "needs-review",
+      "systems": 16,
+      "measures": 64
+    },
+    {
+      "slug": "white-christmas",
+      "title": "White Christmas",
+      "directory": "pieces/white-christmas",
+      "status": "needs-review",
+      "systems": 23,
+      "measures": 90
+    }
+  ]
+}

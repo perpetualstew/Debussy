@@ -1,0 +1,45 @@
+{
+  "catalog": 15,
+  "systems": 17,
+  "portrait": {
+    "pages": "Spread 1 of 3 \u00b7 5 pages",
+    "canvas": [
+      [
+        1080,
+        1920
+      ],
+      [
+        1080,
+        1920
+      ]
+    ],
+    "publishDisabled": false,
+    "notice": "Engraved 17 systems from MusicXML. Adjust the appearance, then export a PNG profile. Source review is still required."
+  },
+  "landscape": {
+    "pages": "Spread 1 of 5 \u00b7 9 pages",
+    "canvas": [
+      [
+        1920,
+        1080
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "publishDisabled": false,
+    "notice": "Engraved 17 systems from MusicXML. Adjust the appearance, then export a PNG profile. Source review is still required."
+  },
+  "single": {
+    "canvas": [
+      [
+        1080,
+        1920
+      ]
+    ],
+    "png": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDgA",
+    "publishDisabled": false
+  },
+  "warnings": []
+}
